@@ -1,10 +1,15 @@
 const express = require('express');
 const { json } = require('body-parser');
+const morgan = require('morgan');
 
 const app = express();
 app.use(json());
 
 const PORT = process.env.PORT || 5000;
+
+app.use(morgan('dev'));
+
+require('./routes/listRoutes')(app);
 
 app.get('/', (req, res) => {
   res.send({ hello: 'We in dis' });
