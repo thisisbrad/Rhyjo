@@ -1,6 +1,7 @@
 # Rhyjo
 
-![alt text](https://github.com/thisisbrad/Rhyjo/blob/master/rhyjo-logo.svg "Logo")
+![alt text](https://github.com/thisisbrad/Rhyjo/blob/master/rhyjo-logo.svg
+=100x20 "Logo")
 
 > React / Redux / Node / MongoDB
 
