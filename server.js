@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const { json } = require('body-parser');
 const morgan = require('morgan');
 
+require('./models/List');
+
 const app = express();
 app.use(json());
 

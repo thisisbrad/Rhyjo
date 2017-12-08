@@ -5,8 +5,7 @@ const ListSchema = new Schema({
   title: {
     type: String,
     required: true,
-    lowercase: true,
-    index: { unique: true }
+    lowercase: true
   },
   todos: [{ text: { type: String } }]
 });

@@ -1,14 +1,28 @@
 const mongoose = require('mongoose');
-const List = require('./models/List');
+const List = mongoose.model('list');
 
 module.exports = app => {
-  app.get('/list/', (req, res) => {
-    res.send({ list: [{ item: 'do this junk' }, { item: 'make a script' }] });
+  app.get('/list/', async (req, res) => {
+    try {
+      const lists = await List.find({});
+      console.log('duhhh?', lists);
+      res.send({ lists });
+    } catch (error) {
+      console.error('ERROR?', error);
+      res.send({ error });
+    }
   });
 
-  app.post('/list/', (req, res) => {
-    console.log('Got the data!', req.body);
-    res.send({ data: req.body });
+  app.post('/list/', async (req, res) => {
+    const { title } = req.body;
+    try {
+      const list_data = new List({ title });
+      const list = await list_data.save();
+      console.log('duhhh?', list.id);
+      res.send({ list });
+    } catch (error) {
+      res.send({ error });
+    }
   });
 
   app.patch('/list/:listId', (req, res) => {
