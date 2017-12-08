@@ -1,5 +1,7 @@
 # Rhyjo
 
+![alt text](https://github.com/thisisbrad/Rhyjo/blob/master/rhyjo-logo.svg "Logo")
+
 > React / Redux / Node / MongoDB
 
 Fullstack React and Node.
