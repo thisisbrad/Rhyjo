@@ -40,9 +40,11 @@ module.exports = app => {
     }
   });
 
-  app.delete('/list/:listId', (req, res) => {
-    const id = req.params.listId;
-    console.log('Got the data!', id);
-    res.send({ id });
+  app.delete('/list/:listId', async (req, res) => {
+    const _id = req.params.listId;
+    await List.find({ _id })
+      .remove()
+      .exec();
+    res.send({ _id });
   });
 };
