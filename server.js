@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 5000;
 
 app.use(morgan('dev'));
 
+require('./routes/listRoutes')(app);
+
 app.get('/', (req, res) => {
   res.send({ hello: 'We in dis' });
 });
