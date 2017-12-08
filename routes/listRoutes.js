@@ -25,10 +25,19 @@ module.exports = app => {
     }
   });
 
-  app.patch('/list/:listId', (req, res) => {
-    const id = req.params.listId;
-    console.log('Got the data!', id);
-    res.send({ id });
+  app.patch('/list/:listId', async (req, res) => {
+    const _id = req.params.listId;
+    const item = req.body.item;
+
+    try {
+      const list_data = await List.findOne({ _id });
+      list_data.todos.push({ item });
+      const list = await list_data.save();
+      res.send({ list });
+    } catch (error) {
+      console.error('ERROR?', error);
+      res.send({ error });
+    }
   });
 
   app.delete('/list/:listId', (req, res) => {

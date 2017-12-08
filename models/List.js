@@ -7,7 +7,7 @@ const ListSchema = new Schema({
     required: true,
     lowercase: true
   },
-  todos: [{ text: { type: String } }]
+  todos: [{ item: { type: String } }]
 });
 
 mongoose.model('list', ListSchema);
