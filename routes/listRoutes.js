@@ -7,4 +7,16 @@ module.exports = app => {
     console.log('Got the data!', req.body);
     res.send({ data: req.body });
   });
+
+  app.patch('/list/:listId', (req, res) => {
+    const id = req.params.listId;
+    console.log('Got the data!', id);
+    res.send({ id });
+  });
+
+  app.delete('/list/:listId', (req, res) => {
+    const id = req.params.listId;
+    console.log('Got the data!', id);
+    res.send({ id });
+  });
 };
